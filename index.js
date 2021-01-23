@@ -48,7 +48,30 @@ app.post("/read", async(req,res)=>{
     })
 
 
+app.post("/search", async(req,res)=>{
+    try{
 
+        bookModel.find(req.body,  (error,data)=>{
+
+            if(error){
+                throw error;
+
+            }
+            else{
+                res.json(data)
+
+            }
+
+
+        } )
+
+
+    }
+    catch(error){
+        res.status(500).send(error)
+
+    }
+})
 
 
 
