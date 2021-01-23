@@ -8,6 +8,9 @@ var app=Express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
+mongoose.connect("mongodb+srv://asha:testdb@cluster0.gmzto.mongodb.net/studdb?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology: true})
+
+
 app.post("/read", async(req,res)=>{
     try{
     var data=req.body;
